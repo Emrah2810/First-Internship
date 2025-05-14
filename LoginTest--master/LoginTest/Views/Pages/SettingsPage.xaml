@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginTest.SettingsPage"
+             xmlns:lang="clr-namespace:LoginTest.Resources.Languages"
+             Title="{x:Static lang:AppResources.Settings}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Switch">
+                <Setter Property="ThumbColor" Value="#007AFF" />
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="#007AFF" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="red" />
+                <Setter Property="BorderColor" Value="red" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#333" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+
+            <Style TargetType="StackLayout">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="Padding" Value="20" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame>
+            <StackLayout>
+                <Label Text="{x:Static lang:AppResources.SelLang}" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand" />
+
+                <Picker x:Name="LanguagePicker" 
+                        Title="{x:Static lang:AppResources.SelLang}" 
+                        TitleColor="Black"
+                        HorizontalTextAlignment="Center ">
+                    <Picker.Items>
+                        <x:String>English</x:String>
+                        <x:String>Nederlands</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="{x:Static lang:AppResources.Theme}" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="{x:Static lang:AppResources.Light}" HorizontalOptions="End" VerticalOptions="Center" />
+                    <Switch x:Name="DarkModeSwitch"
+                        IsToggled="{Binding DarkMode}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+                    <Label Text="{x:Static lang:AppResources.Dark}" HorizontalOptions="Start" VerticalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+        <Button Text="{x:Static lang:AppResources.Logoutbutton}"
+                Clicked="LogoutButton_Clicked"
+                HorizontalOptions="Fill"
+                VerticalOptions="EndAndExpand"
+                BackgroundColor="Transparent"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lang="clr-namespace:LoginTest.Resources.Languages"
+             x:Class="LoginTest.ArrivedPage"
+             Title="{x:Static lang:AppResources.SignOff}">
+    <Grid RowDefinitions="*,Auto">
+        <VerticalStackLayout Grid.Row="0">
+            <StackLayout Padding="1">
+                <Frame WidthRequest="355"  HeightRequest="256" BorderColor="Black">
+                    <mct:DrawingView
+                        x:Name="SignatureEntry"
+                        BackgroundColor="LightGray"
+                        WidthRequest="350"
+                        HeightRequest="250"
+                        IsMultiLineModeEnabled="True"
+                        LineColor="Black"
+                        LineWidth="5"
+                        DrawingLineCompleted="DrawingLineCompleted"/>
+                </Frame>
+                
+            </StackLayout>
+            <Frame BorderColor="Gray" CornerRadius="20" WidthRequest="355">
+                <material:EditorField x:Name="RemarkField" Title="{x:Static lang:AppResources.Explain}" TitleColor="Black" AccentColor="Transparent" BorderColor="Transparent" />
+            </Frame>
+            <Label x:Name="errorlbl" FontSize="25" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
+        <Grid Grid.Row="1" Padding="0" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions> 
+            <ImageButton Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False" x:Name="SaveButton" WidthRequest="200" HeightRequest="50" Source="approve.svg" BackgroundColor="Green" Clicked="SaveButton_Clicked" CornerRadius="0">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+            <ImageButton Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False" x:Name="ClearButton" Source="reset.svg" WidthRequest="200" HeightRequest="50" BackgroundColor="red" Clicked="ClearButton_Clicked" CornerRadius="0">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White"/>
+                </ImageButton.Behaviors>
+            </ImageButton>
+           
+
+        </Grid>
+    </Grid>
+</ContentPage>
